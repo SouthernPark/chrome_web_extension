@@ -1,0 +1,24 @@
+{
+    "name": "Revolve Cloth Info Uploader",
+    "description": "Upload the Cloth info inside shopping cart when checkout in revolve.com",
+    "version": "1.0",
+    "manifest_version": 3,
+    "background": {
+        "service_worker": "background.js"
+    },
+    "permissions": [
+        "storage",
+        "activeTab",
+        "scripting"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "https://*.revolve.com/*"
+            ],
+            "js": [
+                "content-script.js"
+            ]
+        }
+    ]
+}
