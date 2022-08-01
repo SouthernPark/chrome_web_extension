@@ -1,9 +1,13 @@
-async function getCurrentTabUrl() {
-    const tabs = await chrome.tabs.query({ active: true })
-    return tabs[0].url
-}
-
-// inject content script into resolve.com web pages
-
+// listen from content scripts
+chrome.runtime.onMessage.addListener(
+    function (request, sender, sendResponse) {
+        // check if it's from "revolve.com"
+        let re = /.*\.revolve\.com.*/
+        if (sender.tab.url.search(re) !== -1) {
+            console.log(sender.tab.url);
+            console.log(request);
+        }
+    }
+);
 
 

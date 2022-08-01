@@ -14,7 +14,8 @@
     "content_scripts": [
         {
             "matches": [
-                "https://*.revolve.com/*"
+                "https://*.revolve.com/*",
+                "http://*.revolve.com/*"
             ],
             "js": [
                 "content-script.js"
